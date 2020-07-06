@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Customer;
+use App\Http\Requests\CustomerRequest;
 
 class CustomerController extends Controller
 {
@@ -37,16 +38,10 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CustomerRequest $request)
     {
-        $data = $request->validate([
-            'user_id' => 'required',
-            'name' => 'required',
-            'email' => 'required',
-            'telephone' => 'required',
-            'address' => 'required',
-        ]);
-        $customer= Customer::create($data);
+      
+        $customer= Customer::create($request->validated());
 
         return response()->json([
             'message' => "Customer was added successfully",
@@ -87,16 +82,10 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(CustomerRequest $request, Customer $customer)
     {
-        $data = $request->validate([
-            'user_id' => 'required',
-            'name' => 'required',
-            'email' => 'required',
-            'telephone' => 'required',
-            'address' => 'required',
-        ]);
-        $customer->update($data);
+        
+        $customer->update($request->validated());
 
         return response()->json([
             'message' => "Customer was update successfully",
