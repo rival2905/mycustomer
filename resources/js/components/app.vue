@@ -7,10 +7,10 @@
         </div>
 
         <ul class="list-unstyled">
-          <li>
+          <li :class="{'active': title === 'Create Customer'}">
               <router-link to="/customers/create">Add New Customers</router-link>
           </li>
-          <li>
+          <li :class="{'active': title === 'List Customer'}">
               <router-link to="/customers">All Customers</router-link>
           </li>
           <li>

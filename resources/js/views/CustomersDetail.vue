@@ -30,9 +30,10 @@
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col-md-6">
-                <div class="btn rounded border text-white bg-primary align-center" style="height:40px; width:40px"><center>Ta</center></div>
-                <h4 class="d-inline">{{customer.name}}</h4>
+            <div class="col-md-6 ml-2">
+                <CustomerLogo :name="customer.name"/>
+                
+                <h4 class="d-inline pl-2">{{customer.name}}</h4>
             </div>
         </div>
         <div class="row">
@@ -49,8 +50,10 @@
 </template>
 
 <script>
+import CustomerLogo from '../components/CustomerLogo';
 export default {
     name: "CustomersDetail",
+    components : {CustomerLogo},
 
     mounted(){
         axios

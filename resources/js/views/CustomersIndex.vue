@@ -6,11 +6,11 @@
                 <li class="list-group-item border-0">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="btn rounded border text-white bg-primary align-center" style="height:40px; width:40px"><center>Ta</center></div>
+                            <CustomerLogo :name="customer.name"/>
                         </div>
                         <div class="col-md-9">
-                            <label class="m-0">{{customer.name}}</label><br>
-                            <span class="text-muted small text-truncate">{{customer.email}}</span>
+                            <label class="m-0 pl-1">{{customer.name}}</label><br>
+                            <span class="text-muted small text-truncate pl-1">{{customer.email}}</span>
                         </div>
                     </div>
                 </li>
@@ -22,8 +22,12 @@
 </template>
 
 <script>
+import CustomerLogo from '../components/CustomerLogo';
+
 export default {
     name : "CustomersIndex",
+
+    components: {CustomerLogo},
 
     mounted() {
         axios
@@ -40,7 +44,7 @@ export default {
 
     data: function(){
         return{
-            customers : "alska",
+            customers : null,
         }
     }
 }
