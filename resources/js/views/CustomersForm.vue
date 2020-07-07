@@ -39,7 +39,7 @@
         <div class="form-group row">
             <div class="col-md-7">
 
-                <button type="submit" class="btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary">Save</button>
                 <a href="#" class="btn btn-danger" @click="$router.back()">Cancel</a>
 
             </div>
