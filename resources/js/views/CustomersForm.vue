@@ -38,7 +38,10 @@
         </div>
         <div class="form-group row">
             <div class="col-md-7">
+
                 <button type="submit" class="btn-primary">Save</button>
+                <a href="#" class="btn btn-danger" @click="$router.back()">Cancel</a>
+
             </div>
         </div>
     </form>
@@ -48,7 +51,7 @@
 export default {
     name: "CustomersForm",
 
-    props:['errors'],
+    props:['errors', 'data'],
 
     data(){
         return{
@@ -87,7 +90,17 @@ export default {
             if(this.errors && this.errors[column]){
                 this.errors[column]= null;
             }
-        },
+        }
+    },
+
+    watch: {
+        data: function (val){
+            this.name = val.name;
+            this.email = val.email;
+            this.telephone = val.telephone;
+            this.address = val.address;
+           
+        }
     }
     
 }
